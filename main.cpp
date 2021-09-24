@@ -17,19 +17,33 @@ int main() {
     persons.push_back(person4);
     persons.push_back(person5);
 
-    person1.getAllPerson(persons);
+    Person::getAllPerson(persons);
 
-    string winner = person1.luckiest(persons);
-    cout<<"Luckiest person is - "<<winner<<endl;
+    string winner = Person::luckiest(persons);
+    cout<<"Luckiest person is - "<<winner<<"\n\n";
 
-    person1.changeLuck(persons[rand()%4], persons[rand()%4]);
+    Person::changeLuck(persons[rand()%4], persons[rand()%4]);
     //person1.changeLuck(person1)
+    Person::getAllPerson(persons);
+    winner = Person::luckiest(persons);
+    cout<<"New luckiest person is - "<<winner<<"\n\n";
 
-    person1.getAllPerson(persons);
-    winner = person1.luckiest(persons);
-    cout<<"New luckiest person is - "<<winner<<endl;
+    //Objects in static memory are created and deleted by the compiler.
+    //Static memory is cleared at program termination.
+    //Person person1("Aila", 25, rand()%10);
 
-    //Person newPerson = new Person("Sabo", 20, 10);
-
+    //Dynamic objects exist until explicitly removed.
+    //Dynamic objects are allocated in heap.
+    Person* newPerson = new Person("Sabo", 20, 10);
+    //The new operator allocates space in heap for an object and returns a pointer to that object.
+    cout<<"Person who was create in heap memory - ";
+    cout<<newPerson->getName()<<" "<<newPerson->getAge()<<" "<<newPerson->getLuck();
+    //The delete operator takes a pointer to a dynamic object and removes it from memory.
+    //This should be especially taken into account if a dynamic object is created in one part of the code and used in another.
+    //Indeed, after using a certain function, the dynamic object will not be deleted, as it is done with local automatic objects.
+    //Therefore, it must be explicitly deleted using the delete operator.
+    delete newPerson;
+    //Using an object after deleting it can lead to unpredictable results
+    //cout<<newPerson->getName()<<" "<<newPerson->getAge()<<" "<<newPerson->getLuck();
     return 0;
 }
