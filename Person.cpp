@@ -28,6 +28,28 @@ int Person::getLuck() const {
 void Person::setLuck(int luck) {
     Person::luck = luck;
 }
-string Person::luckiest(Person person){
 
+void Person::getAllPerson(vector<Person> persons) {
+    for(Person people : persons){
+        cout<<people.getName()<<" "<<people.getLuck()<<endl;
+    }
 }
+
+string Person::luckiest(vector<Person> persons){
+    string winner=persons[0].getName();
+    int highest = persons[0].getLuck();
+    for(int i=1; i<=4; i++){
+        if(highest < persons[i].getLuck()){
+            highest = persons[i].getLuck();
+            winner=persons[i].getName();
+        }
+    }
+    return winner;
+}
+
+void Person::changeLuck(Person &person1, Person &person2) {
+    int forSwap = person1.getLuck();
+    person1.setLuck(person2.getLuck());
+    person2.setLuck(forSwap);
+}
+

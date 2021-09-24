@@ -24,7 +24,11 @@ public:
 
     void setLuck(int luck);
 
-    string luckiest(Person person);
+    static void getAllPerson(vector<Person> persons);
+
+    static string luckiest(vector<Person> persons);
+
+    void changeLuck(Person &person1, Person &person2);
 
 private:
     string name;
