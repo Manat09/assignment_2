@@ -52,7 +52,7 @@ for(int i=0; i<3; i++){
   t+=arr[i][j];
  }//1+2+3+4+5+6+7+8+9
 }
-************************************************
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 for(int i=0; i<3; i++){
  for(int j=0; j<3; j++){
   t+=arr[j][i]; //here I swapped i and j
@@ -65,3 +65,14 @@ for(int i=0; i<3; i++){
  * If order is in use, it will result in fewer memory accesses, since the
  * next few values needed for subsequent computations are already in the cache line.
  */
+/*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * //As we know, when passing a parameter by reference, the value
+ * itself will also change. Therefore, if we write our parameter
+ * as a constant, then we will not be able to change it.
+void square(const int &n)
+{
+    //n = n * n; //will be error
+    cout<<n*n;//
+}
+*/
