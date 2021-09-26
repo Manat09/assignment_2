@@ -47,3 +47,24 @@ int main() {
     //cout<<newPerson->getName()<<" "<<newPerson->getAge()<<" "<<newPerson->getLuck();
     return 0;
 }
+/*
+int arr[3][3]={ {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+int t=0;
+for(int i=0; i<3; i++){
+ for(int j=0; j<3; j++){
+  t+=arr[i][j];
+ }//1+2+3+4+5+6+7+8+9
+}
+************************************************
+for(int i=0; i<3; i++){
+ for(int j=0; j<3; j++){
+  t+=arr[j][i]; //here I swapped i and j
+ }//1+4+7+2+5+8+3+6+9
+}
+ */
+/*
+ * When retrieving a specific matrix element from memory, the elements
+ * next to it will also be retrieved and stored in the cache line.
+ * If order is in use, it will result in fewer memory accesses, since the
+ * next few values needed for subsequent computations are already in the cache line.
+ */
