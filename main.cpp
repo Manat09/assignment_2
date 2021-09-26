@@ -10,10 +10,7 @@ int main() {
     Person person4("David", 18, rand()%10);
     Person person5("Bruce", 30, rand()%10);
 
-    vector<Person> persons;
-    persons.push_back(person1);
-    persons.push_back(person2);
-    persons.push_back(person3);
+    vector<Person> persons {person1,person2,person3};
     persons.push_back(person4);
     persons.push_back(person5);
 
